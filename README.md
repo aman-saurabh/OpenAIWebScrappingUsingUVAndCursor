@@ -34,7 +34,7 @@ You can get your OpenAI API key from the following URL:
 * https://platform.openai.com/settings/organization/api-keys
 
 
-## creating .pynb file and setting kernel for the file :
+## creating .ipynb file and setting kernel for the file :
 Create openai_webscraper.ipynb file and set kernel by clicking on "Select kernel"(On the top right corner of the file), then in the Pop-up select "Python Environment" and then select ".venv"(i.e. the virtual environment "uv" created for you). It will set the kernel for you and now in place of "Select kernel" you will see ".venv(Python 3.12.13)" or something similar. It means kernel is set for the file.
 
 ## How to add code in a cell in ".ipynb" file :
