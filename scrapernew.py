@@ -14,13 +14,15 @@ def fetch_website_contents(url: str) -> str:
         )
 
     with sync_playwright() as p:
+        # It is throwing erro if we use chromium instead of Firefox, so we are using p.firefox.launch inplace of p.chromium.launch
+
         browser = p.firefox.launch(headless=True)  # 👀 show browser temporarily
         context = browser.new_context(
             storage_state=auth_file,
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/119.0.0.0 Safari/537.36"
+                "Chrome/120.0.0.0 Safari/537.36"
             ),
             locale="en-US",
             geolocation={"latitude": 37.7749, "longitude": -122.4194},
