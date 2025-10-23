@@ -15,13 +15,22 @@ uv venv
 
 ## Install required packages for the project
 ```
-uv add requests beautifulsoup4 openai python-dotenv pandas jupyter
+uv add requests beautifulsoup4 openai python-dotenv pandas jupyter playwright
 ```
 This command automatically updates your pyproject.toml and uv.lock file. But still if you want to add dependencies in requirement.txt file then run the following command.
 
 ### Command to list all packages in requirement.txt file
 ```
 uv export --no-hashes --format requirements-txt > requirements.txt
+```
+
+## Install playwright
+```
+python -m playwright install
+```
+Command to check playwright version
+```
+python -m playwright --version
 ```
 
 ## Add OpenAI key in the ".env" file: 
