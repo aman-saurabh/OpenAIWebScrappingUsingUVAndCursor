@@ -42,7 +42,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 You can get your OpenAI API key from the following URL: 
 * https://platform.openai.com/settings/organization/api-keys
 
-
+# How to run openai_webscraper.ipynb file web scraping program for Server Side Rendering websites :
 ## creating .ipynb file and setting kernel for the file :
 Create openai_webscraper.ipynb file and set kernel by clicking on "Select kernel"(On the top right corner of the file), then in the Pop-up select "Python Environment" and then select ".venv"(i.e. the virtual environment "uv" created for you). It will set the kernel for you and now in place of "Select kernel" you will see ".venv(Python 3.12.13)" or something similar. It means kernel is set for the file.
 
@@ -60,7 +60,7 @@ We can also run complete program from the terminal using following command :
 jupyter nbconvert --to notebook --execute openai_webscraper.ipynb --inplace
 ```
 
-# How to run openai_playwright_webscrapping.py file :
+# How to run openai_playwright_webscrapping.py file web scraping program for Client Side Rendering websites :
 For web scrapping of client side rendering/dynamic rendering websites we need headless browser and JS Engine.
 So let's understand few associated terms first. 
 ## Server-Side Rendering (SSR) -> 
@@ -130,19 +130,25 @@ Every modern browser has one.
 * Firefox ---> SpiderMonkey
 * Safari ---> JavaScriptCore(Nitro)
 
-So, https://openai.com is a client side rendering website and we need some headless browser to read it's content. Here we are using PlayWright for headless browsing. Apart from that the website has some Cloudflare JS and cookie checks, so to bypass that we are first running collect_cookies.py file which collects cookies and save them in "auth.json" file and we use this auth.json file in browser.new_context() in scrapernew.py file to pass cookies to bypass Cloudflare JS and cookie checks.
+So, https://openai.com is a client side rendering website and we need some headless browser to read it's content. Here we are using PlayWright for headless browsing. 
 
-So, to run "openai_playwright_webscrapping.py" program first run "collect_cookies.py" file using command :
+We can run "openai_playwright_webscrapping.py" file using the following command :
+```
+python openai_playwright_webscrapping.py
+```
+
+It will show you the website summary.
+
+******************************************************************************
+## Note :-
+some websites has some Cloudflare JS and cookie checks, so to bypass that we can first run collect_cookies.py file which collects cookies and save them in "auth.json" file and we use this auth.json file in browser.new_context() in scrapernew.py file(now commented out) to pass cookies to bypass Cloudflare JS and cookie checks.
+
+So, if a website needs cookies we need to run "collect_cookies.py" file first before running "openai_playwright_webscrapping.py" file using the following command :
 ```
 python collect_cookies.py
 ```
 It will open a browser window. Wait for 5-7 seconds and then press "Enter" to close the browser window. It will save the cookies in "auth.json" file.
-
-Now run "openai_playwright_webscrapping.py" command using the following command :
-```
-python openai_playwright_webscrapping.py
-```
-It will show you the website summary.
+******************************************************************************
 
 # Explanation of Playwright code used in the project : 
 ```
